@@ -14,10 +14,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up PHP (no composer explicitly mentioned)
+      - name: Setup PHP without composer
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.3
+          php-version: '8.4'
           tools: none
 
       - name: Check if Composer is Installed
