@@ -1,0 +1,25 @@
+name: Check Composer Default Install
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check-composer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP (no composer explicitly mentioned)
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Check if Composer is Installed
+        run: |
+          echo "Checking composer version..."
+          composer --version || echo "❌ Composer is NOT installed"
